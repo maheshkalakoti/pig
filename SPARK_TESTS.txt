@@ -40,7 +40,7 @@ STORE B INTO 'hdfs://localhost:9000/output';
 A = load 'hdfs://localhost:9000/input' USING PigStorage(',') AS (name: chararray, age:int);
 B = GROUP A BY name;
 C = FOREACH B GENERATE COUNT(A);
-rmf '/output';
+rmf /output;
 STORE C INTO 'hdfs://localhost:9000/output'; 
 
 
